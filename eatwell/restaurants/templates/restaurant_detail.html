@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h3>{{ restaurant.name }}</h3>
+    <ul>
+        <li>{{ restaurant.address1 }}</li>
+        <li>{{ restaurant.address2 }}</li>
+        <li>{{ restaurant.city }}</li>
+        <li>{{ restaurant.state }}</li>
+        <li>{{ restaurant.zip_code }}</li>
+    </ul>
+
+
+    <h3>Reviews</h3>
+    <div id="reviews">
+    {% for review in reviews %}
+        <div class="review">
+            <h4>{{ review.title }}</h4>
+            <p>{{ review.review }}</p>
+        </div>
+    {% endfor %}
+    </div>
+
+    <a href="{% url write_review restaurant.pk %}">Write Review</a>
+
+{% endblock content%}
